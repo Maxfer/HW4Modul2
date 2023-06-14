@@ -85,19 +85,19 @@
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="1ro-1L-Nbo">
                                                         <rect key="frame" x="-2" y="0.0" width="185" height="50.5"/>
                                                         <connections>
-                                                            <action selector="sliderAction" destination="BYZ-38-t0r" eventType="valueChanged" id="DeO-XA-ueB"/>
+                                                            <action selector="sliderAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="Pb5-Ph-anu"/>
                                                         </connections>
                                                     </slider>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="bKV-Ef-59y">
                                                         <rect key="frame" x="-2" y="59.5" width="185" height="51"/>
                                                         <connections>
-                                                            <action selector="sliderAction" destination="BYZ-38-t0r" eventType="valueChanged" id="2Ln-yu-DIR"/>
+                                                            <action selector="sliderAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="8Qc-iG-LlB"/>
                                                         </connections>
                                                     </slider>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Yq8-96-RCu">
                                                         <rect key="frame" x="-2" y="119.5" width="185" height="50.5"/>
                                                         <connections>
-                                                            <action selector="sliderAction" destination="BYZ-38-t0r" eventType="valueChanged" id="mcP-nR-Znr"/>
+                                                            <action selector="sliderAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="q7s-3d-nXM"/>
                                                         </connections>
                                                     </slider>
                                                 </subviews>
@@ -106,13 +106,23 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nBt-ys-EwV">
+                                <rect key="frame" x="128" y="503.5" width="64.5" height="34.5"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Done"/>
+                                <connections>
+                                    <action selector="doneDidTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="cqr-i4-f2u"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="nBt-ys-EwV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="72U-nE-Znq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3pM-C0-szl" secondAttribute="trailing" constant="16" id="Bbe-5e-9nR"/>
                             <constraint firstItem="3pM-C0-szl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="U4u-sJ-KWy"/>
                             <constraint firstItem="3pM-C0-szl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="eun-nV-eaK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nBt-ys-EwV" secondAttribute="bottom" constant="30" id="fB1-2m-vJh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6JE-hu-dv5"/>

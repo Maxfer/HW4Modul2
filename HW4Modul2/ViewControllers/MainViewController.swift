@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol SettingsViewControllerDelegate: AnyObject {
+    func setNewValue(Red redValue: CGFloat, green greenValue: CGFloat, blue blueValue: CGFloat)
+}
+
 final class MainViewController: UIViewController {
     // MARK: — IB Outlet
     // @IBOutlet var specialityLabel: UILabel!
@@ -15,17 +19,21 @@ final class MainViewController: UIViewController {
     // let personValue = ""
     
     // MARK: — Private Propereties
-    // private let topColor = UIColor
+    private var redColorView: CGFloat = 1
+    private var greenColorView: CGFloat = 1
+    private var blueColorView: CGFloat = 1
     
+        
     // MARK: — Initializrs
     // init(name: String) {
     //      self.name = name
     //}
     
     // MARK: — Override Methds
-//        override func viewDidLoad() {
-//            super.viewDidLoad()
-//        }
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            setColorView()
+        }
     //    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     //        super .touchesBegan(touches, with: event)
     //        view.endEditing(true)
@@ -33,8 +41,10 @@ final class MainViewController: UIViewController {
     
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             guard let settingsVC = segue.destination as? SettingsViewController else { return }
-//            settingsVC.randomNumber = randomNumber
-//            settingsVC.delegate = self
+            settingsVC.redColorView = redColorView
+            settingsVC.greenColorView = greenColorView
+            settingsVC.blueColorView = blueColorView
+            settingsVC.delegate = self
         }
     
     // MARK: — IBAction
@@ -44,8 +54,27 @@ final class MainViewController: UIViewController {
     // func loadName(from string: String) { }
     
     // MARK: — Private Methods
-    // private func setupUI() {}
+    private func setColorView() {
+        view.backgroundColor = UIColor.init(
+            red: CGFloat(redColorView),
+            green: CGFloat(greenColorView),
+            blue: CGFloat(blueColorView),
+            alpha: 1
+        )
+    }
+    
 }
+
+// MARK: - SettingsViewControllerDelegate
+extension MainViewController: SettingsViewControllerDelegate {
+    func setNewValue(Red redValue: CGFloat, green greenValue: CGFloat, blue blueValue: CGFloat) {
+        self.redColorView = redValue
+        self.greenColorView = greenValue
+        self.blueColorView = blueValue
+        setColorView()
+    }
+}
+
 
 // MARK: — showAlert
 extension UIViewController {
