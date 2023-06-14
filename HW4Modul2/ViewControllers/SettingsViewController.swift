@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class SettingsViewController: UIViewController {
 
     // MARK: — IBOutlet
 
@@ -22,8 +22,10 @@ class ViewController: UIViewController {
     @IBOutlet var blueLabel: UILabel!
     @IBOutlet var blueSlider: UISlider!
     
+    // MARK: — Override Methds
     override func viewDidLoad() {
         super.viewDidLoad()
+        mainView.layer.cornerRadius = 20
         
         redSlider.minimumTrackTintColor = .red
         greenSlider.minimumTrackTintColor = .green
@@ -33,18 +35,11 @@ class ViewController: UIViewController {
     }
 
     // MARK: — IBAction
-    
-    @IBAction func redSliderAction() {
+    @IBAction func sliderAction() {
         setupView()
     }
     
-    @IBAction func greenSliderAction() {
-        setupView()
-    }
-    @IBAction func blueSliderAction() {
-        setupView()
-    }
-    
+    // MARK: — Private Methods
     private func setupView() {
         mainView.backgroundColor = UIColor.init(
             red: CGFloat(redSlider.value),
