@@ -8,7 +8,9 @@
 import UIKit
 
 protocol SettingsViewControllerDelegate: AnyObject {
-    func setNewValue(Red redValue: CGFloat, green greenValue: CGFloat, blue blueValue: CGFloat)
+    func setNewValue(Red redValue: CGFloat,
+                     green greenValue: CGFloat,
+                     blue blueValue: CGFloat)
 }
 
 final class MainViewController: UIViewController {
@@ -32,12 +34,6 @@ final class MainViewController: UIViewController {
         settingsVC.delegate = self
     }
     
-    // MARK: — IBAction
-    // @IBAction func logInDidTapped() {}
-    
-    // MARK: — Public Methods
-    // func loadName(from string: String) { }
-    
     // MARK: — Private Methods
     private func setColorView() {
         view.backgroundColor = UIColor.init(
@@ -52,7 +48,9 @@ final class MainViewController: UIViewController {
 
 // MARK: - SettingsViewControllerDelegate
 extension MainViewController: SettingsViewControllerDelegate {
-    func setNewValue(Red redValue: CGFloat, green greenValue: CGFloat, blue blueValue: CGFloat) {
+    func setNewValue(Red redValue: CGFloat,
+                     green greenValue: CGFloat,
+                     blue blueValue: CGFloat) {
         self.redColorView = redValue
         self.greenColorView = greenValue
         self.blueColorView = blueValue
