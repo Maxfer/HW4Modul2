@@ -14,6 +14,7 @@
 		3E75B85A2A2F378D0003C1FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E75B8592A2F378D0003C1FE /* Assets.xcassets */; };
 		3E75B85D2A2F378D0003C1FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E75B85B2A2F378D0003C1FE /* LaunchScreen.storyboard */; };
 		3E94E32D2A39E669003845F3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E94E32C2A39E669003845F3 /* MainViewController.swift */; };
+		3EF3AAC42A3B076E0000A038 /* ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF3AAC32A3B076E0000A038 /* ShowAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		3E75B85C2A2F378D0003C1FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3E75B85E2A2F378D0003C1FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E94E32C2A39E669003845F3 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		3EF3AAC32A3B076E0000A038 /* ShowAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 			children = (
 				3E75B8542A2F378C0003C1FE /* SettingsViewController.swift */,
 				3E94E32C2A39E669003845F3 /* MainViewController.swift */,
+				3EF3AAC32A3B076E0000A038 /* ShowAlert.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EF3AAC42A3B076E0000A038 /* ShowAlert.swift in Sources */,
 				3E75B8552A2F378C0003C1FE /* SettingsViewController.swift in Sources */,
 				3E75B8512A2F378C0003C1FE /* AppDelegate.swift in Sources */,
 				3E75B8532A2F378C0003C1FE /* SceneDelegate.swift in Sources */,

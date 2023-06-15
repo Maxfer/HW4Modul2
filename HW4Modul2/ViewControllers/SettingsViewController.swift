@@ -11,6 +11,7 @@ final class SettingsViewController: UIViewController {
     
     // MARK: — IBOutlet
     @IBOutlet var mainView: UIView!
+    @IBOutlet var mainStackView: UIStackView!
     
     @IBOutlet var redLabel: UILabel!
     @IBOutlet var redSlider: UISlider!
@@ -35,6 +36,7 @@ final class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mainView.layer.cornerRadius = 20
+        mainStackView.endEditing(true)
         
         setColorSliders()
         setColorView()
@@ -43,12 +45,19 @@ final class SettingsViewController: UIViewController {
         redSlider.minimumTrackTintColor = .red
         greenSlider.minimumTrackTintColor = .green
         blueSlider.minimumTrackTintColor = .blue
+        
         addDoneButtonOnNumpad(textField: redTextField)
         addDoneButtonOnNumpad(textField: greenTextField)
         addDoneButtonOnNumpad(textField: blueTextField)
+        
         redTextField.delegate = self
         greenTextField.delegate = self
         blueTextField.delegate = self
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super .touchesBegan(touches, with: event)
+        view.endEditing(true)
     }
     
     // MARK: — IBAction
@@ -132,7 +141,20 @@ final class SettingsViewController: UIViewController {
 extension SettingsViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let newValue = textField.text else { return }
-        guard let numberValue = Float(newValue) else { return }
+        guard let numberValue = Float(newValue) else {
+            showAlert(
+                withTitle: "Wrong format",
+                andMessage: "Please enter correct value")
+                { _ in textField.text = ""}
+            return
+        }
+        guard numberValue >= 0 && numberValue <= 1 else {
+            showAlert(
+                withTitle: "Invalid range",
+                andMessage: "Please enter a range from 0 to 1")
+                { _ in textField.text = "" }
+            return
+        }
         if textField == redTextField {
             redSlider.setValue(numberValue, animated: true)
             redLabel.text = string(from: redSlider)
@@ -147,5 +169,20 @@ extension SettingsViewController: UITextFieldDelegate {
             blueColorView = CGFloat(numberValue)
         }
         setColorView()
+    }
+}
+
+// MARK: — showAlert
+extension SettingsViewController {
+    
+    private func showAlert(withTitle title: String,
+                           andMessage message: String,
+                           handler: ((UIAlertAction) -> Void)? = nil) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: handler)
+        
+        alert.addAction(okAction)
+        present(alert, animated: true)
     }
 }
